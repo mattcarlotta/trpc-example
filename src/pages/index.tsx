@@ -1,12 +1,10 @@
 import { trpc } from "../utils/trpc";
 
 export default function IndexPage() {
-  const { data, error } = trpc.useQuery(["users"], {
-    retry: 0,
-  });
+  const { data, error } = trpc.useSWR(["users"]);
 
   if (error) {
-    return <h1>{error.toString()}</h1>;
+    return <h1>{error.message}</h1>;
   }
 
   if (!data) {
