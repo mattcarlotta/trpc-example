@@ -1,5 +1,4 @@
-import { createSWRHooks } from "trpc-swr";
-import type { AppRouter } from "../pages/api/trpc/[trpc]";
+import { createSWRHooks } from 'trpc-swr'
+import type { AppRouter } from '../server/router'
 
-export const trpc = createSWRHooks<AppRouter>();
-// => { useQuery: ..., useMutation: ...}
+export const trpc = createSWRHooks<AppRouter>()
