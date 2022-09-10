@@ -9,12 +9,13 @@ npm i
 npm run dev
 ```
 
-# Project Structure
+## Project Structure
+
 ```
 ┌── .next
 ├── node_modules
 ├── public
-└── src 
+└── src
     ├── components
     ├── pages
     |   ├── api
@@ -31,6 +32,7 @@ npm run dev
     ├── styles
     ├── index.html
     └── utils
+        ├── getBaseUrl.ts // trpc url helper function
         ├── ssgHelper.ts // trpc server-side/staticprop helpers
         └── trpc.ts // client-side querying using trpc SWR hooks
 ```

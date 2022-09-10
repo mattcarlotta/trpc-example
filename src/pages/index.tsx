@@ -39,7 +39,9 @@ export default function IndexPage({
         <Title>Server:</Title>
         <List>
           {serverError || !posts ? (
-            <ListItem className="text-red-500">{serverError}</ListItem>
+            <ListItem className="text-red-500">
+              {serverError || 'Posts not found'}
+            </ListItem>
           ) : (
             posts.map((post) => (
               <ListItem key={post.id} className="space-y-2">
