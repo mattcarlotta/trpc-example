@@ -11,7 +11,7 @@ npm i
 npm run dev
 ```
 
-# Project Structure
+## Project Structure
 
 ```
 ┌── .next
@@ -34,6 +34,7 @@ npm run dev
     ├── styles
     ├── index.html
     └── utils
+        ├── getBaseUrl.ts // trpc url helper function
         ├── ssgHelper.ts // trpc server-side/staticprop helpers
         └── trpc.ts // client-side querying using trpc React-Query hooks
 ```
