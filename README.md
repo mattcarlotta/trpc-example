@@ -1,20 +1,36 @@
-# Next.js + TRPC
+# Next.js + TRPC w/SWR
 
-This example shows how you can make a typed query using a minimal implementation of TRPC following [`this as a reference`](https://trpc.io/docs/nextjs). 
+This example shows how you can make a typed query using a minimal implementation of TRPC following [`this as a reference`](https://trpc.io/docs/nextjs).
 
 ## Setup
 
 ```bash
-npx create-next-app --example https://github.com/trpc/trpc --example-path examples/next-minimal-starter trpc-minimal-starter
-cd trpc-minimal-starter
 npm i
 npm run dev
 ```
 
-## Development
-
-### Start project
-
-```bash
-npm run dev        # starts next.js
+# Project Structure
+```
+┌── .next
+├── node_modules
+├── public
+└── src 
+    ├── components
+    ├── pages
+    |   ├── api
+    |   |   └── trpc
+    |   |       └── [trpc].ts // trpc router endpoint
+    |   |
+    |   ├── _app.tsx
+    |   └── index.tsx
+    |
+    ├── server
+    |   ├── router.ts // trpc router w/routes
+    |   └── types.ts // zod types used by trpc
+    |
+    ├── styles
+    ├── index.html
+    └── utils
+        ├── ssgHelper.ts // trpc server-side/staticprop helpers
+        └── trpc.ts // client-side querying using trpc SWR hooks
 ```
