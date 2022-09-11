@@ -11,14 +11,7 @@ export default function IndexPage({
   posts,
   serverError
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const {
-    data,
-    error: usersError,
-    isLoading
-  } = trpc.useQuery(['users'], {
-    retry: 0,
-    cacheTime: 60 * 60 * 24
-  })
+  const { data, error: usersError, isLoading } = trpc.useQuery(['users'])
 
   return (
     <main className="max-w-screen-xl mx-auto">
@@ -27,7 +20,7 @@ export default function IndexPage({
         <List>
           {usersError || (!isLoading && !data) ? (
             <ListItem className="text-red-500">
-              {usersError?.message || 'Users not found'}
+              {usersError?.message || 'Unable to retrieve users'}
             </ListItem>
           ) : isLoading ? (
             Array.from({ length: 10 }, (_v, i) => (
@@ -47,7 +40,7 @@ export default function IndexPage({
         <List>
           {serverError || !posts ? (
             <ListItem className="text-red-500">
-              {serverError || 'Posts not found'}
+              {serverError || 'Unable to retrieve posts'}
             </ListItem>
           ) : (
             posts.map((post) => (
