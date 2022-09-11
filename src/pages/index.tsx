@@ -11,7 +11,14 @@ export default function IndexPage({
   posts,
   serverError
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const { data, error: usersError, isLoading } = trpc.useQuery(['users'])
+  const {
+    data,
+    error: usersError,
+    isLoading
+  } = trpc.useQuery(['users'], {
+    retry: 0,
+    cacheTime: 60 * 60 * 24
+  })
 
   return (
     <main className="max-w-screen-xl mx-auto">
